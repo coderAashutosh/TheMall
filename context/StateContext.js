@@ -4,11 +4,11 @@ import { toast } from 'react-hot-toast';
 const Context = createContext();
 
 export const StateContext = ({ children }) => {
-    const [showWishlist, setShowWishlist] = useState(false)
+    const [showWishlist, setShowWishlist] = useState(false);
     const [wishlistItems, setWishlistItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
-    const [totalQuantities, setTotalQuantities] = useState(0)
-    const [qty, setqty] = useState(1);
+    const [totalQuantities, setTotalQuantities] = useState(0);
+    const [qty, setQty] = useState(1);
 
     let foundProduct;
     let index;
@@ -35,7 +35,6 @@ export const StateContext = ({ children }) => {
         }
 
         toast.success(`${qty} ${product.name} added to the Wishlist.`);
-
     }
 
     const onRemove = (product) => {
@@ -59,22 +58,22 @@ export const StateContext = ({ children }) => {
         } else if (value === 'dec') {
             if (foundProduct.quantity > 1) {
                 setWishlistItems([...newWishlistItems, { ...foundProduct, quantity: foundProduct.quantity - 1 }]);
-                setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
+                setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.discountedPrice)
                 setTotalQuantities(prevTotalQuantities => prevTotalQuantities - 1)
             }
         }
     }
 
     const incrementQty = () => {
-        setqty((prevQty) => prevQty + 1)
+        setQty((prevQty) => prevQty + 1);
     }
 
     const decrementQty = () => {
-        setqty((prevQty) => {
+        setQty((prevQty) => {
             if (prevQty - 1 < 1) return 1;
 
             return prevQty - 1;
-        })
+        });
     }
 
     return (
@@ -90,7 +89,10 @@ export const StateContext = ({ children }) => {
                 decrementQty,
                 onAdd,
                 toggleWishlistItemQuanitity,
-                onRemove
+                onRemove,
+                setWishlistItems,
+                setTotalPrice,
+                setTotalQuantities
             }}
         >
             {children}

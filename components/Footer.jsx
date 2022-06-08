@@ -13,9 +13,9 @@ const Footer = () => {
                 <div className="footer-box">
                     <h4>Useful Links</h4>
                     <div className="footer-links">
-                        <a href="#">&bull; Products on Sale</a>
-                        <a href="#">&bull; Featured Products</a>
-                        <a href="#">&bull; Wishlist</a>
+                        <a href="/">&bull; Products on Sale</a>
+                        <a href="/">&bull; Featured Products</a>
+                        <a href="/">&bull; Wishlist</a>
                     </div>
                 </div>
                 {/* <div className="footer-box">
@@ -44,7 +44,7 @@ const Footer = () => {
                 </div>
                 <div className="footer-box">
                     <img src='https://images-platform.99static.com/JlRok7x9eORhrnYpdZ0TYXPkJkY=/380x9:1115x744/500x500/top/smart/99designs-contests-attachments/94/94486/attachment_94486850' className='image' alt="logo" />
-                    <p className="u-text-small">&copy; THE MALL 2022. All Rights Reserved</p>
+                    <p className="u-text-small">&copy; The Mall 2022, Made with Love❣️</p>
                 </div>
             </div>
         </section>
